@@ -14,10 +14,7 @@ class _Event1State extends State<Event1> {
         backgroundColor: Colors.white,
         title: Text(
           'BACK',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 18.0
-          ),
+          style: TextStyle(color: Colors.black, fontSize: 18.0),
         ),
         leading: IconButton(
           icon: Icon(
@@ -46,35 +43,32 @@ class _Event1State extends State<Event1> {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey[300],
-                            offset: Offset(0.0,3.0),
-                            blurRadius:15.0 
-                          )
+                              color: Colors.grey[300],
+                              offset: Offset(0.0, 3.0),
+                              blurRadius: 15.0)
                         ],
                       ),
                       child: Image.asset(
-                        'assets/images/events/event1.jpg',
+                        'assets/images/events/event2.jpg',
                       ),
                     ),
                   ],
                 ),
               ),
               Positioned(
-                top: MediaQuery.of(context).size.height*0.45,
-                left: MediaQuery.of(context).size.width*0.001,
-                right: MediaQuery.of(context).size.width*0.001,
+                top: MediaQuery.of(context).size.height * 0.45,
+                left: MediaQuery.of(context).size.width * 0.001,
+                right: MediaQuery.of(context).size.width * 0.001,
                 child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black54,
-                        offset: Offset(0.0,3.0),
-                        blurRadius:6.0 
-                      )
-                    ]
-                  ),
-                  width: MediaQuery.of(context).size.width*0.885,
+                      borderRadius: BorderRadius.circular(20.0),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black54,
+                            offset: Offset(0.0, 3.0),
+                            blurRadius: 6.0)
+                      ]),
+                  width: MediaQuery.of(context).size.width * 0.885,
                   child: Card(
                     color: Colors.white,
                     // elevation: 6.0,
@@ -92,21 +86,22 @@ class _Event1State extends State<Event1> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    'GSSOC',
+                                    'AMUHacks',
                                     style: TextStyle(
-                                      fontSize: 25.0,
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.black
-                                    ),
+                                        fontSize: 25.0,
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.black),
                                   ),
-                                  SizedBox(height: MediaQuery.of(context).size.width * 0.008,),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.width *
+                                        0.008,
+                                  ),
                                   Text(
                                     '2020',
                                     style: TextStyle(
-                                      fontWeight: FontWeight.w400, 
-                                      fontSize: 20.0,
-                                      color: Colors.black
-                                    ),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 20.0,
+                                        color: Colors.black),
                                   ),
                                 ],
                               ),
@@ -122,7 +117,9 @@ class _Event1State extends State<Event1> {
                               )
                             ],
                           ),
-                          SizedBox(height: MediaQuery.of(context).size.height*0.04,),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.04,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
@@ -133,9 +130,13 @@ class _Event1State extends State<Event1> {
                                     size: 30.0,
                                     color: Colors.grey,
                                   ),
-                                  SizedBox(width: MediaQuery.of(context).size.width*0.01,),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.01,
+                                  ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
                                         'TIME',
@@ -145,7 +146,7 @@ class _Event1State extends State<Event1> {
                                         ),
                                       ),
                                       Text(
-                                        '12:00',
+                                        '11:00',
                                         style: TextStyle(
                                           fontSize: 13.0,
                                           color: Colors.grey,
@@ -162,9 +163,13 @@ class _Event1State extends State<Event1> {
                                     size: 30.0,
                                     color: Colors.grey,
                                   ),
-                                  SizedBox(width: MediaQuery.of(context).size.width*0.01,),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.01,
+                                  ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
                                         'DATE',
@@ -174,7 +179,7 @@ class _Event1State extends State<Event1> {
                                         ),
                                       ),
                                       Text(
-                                        '12:00',
+                                        '13:00',
                                         style: TextStyle(
                                           fontSize: 13.0,
                                           color: Colors.grey,
@@ -193,9 +198,13 @@ class _Event1State extends State<Event1> {
                                       color: Colors.grey,
                                     ),
                                   ),
-                                  SizedBox(width: MediaQuery.of(context).size.width*0.01,),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.01,
+                                  ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
                                         'PRICE',
@@ -205,7 +214,7 @@ class _Event1State extends State<Event1> {
                                         ),
                                       ),
                                       Text(
-                                        '12:00',
+                                        '0:00',
                                         style: TextStyle(
                                           fontSize: 13.0,
                                           color: Colors.grey,
@@ -217,24 +226,23 @@ class _Event1State extends State<Event1> {
                               ),
                             ],
                           ),
-                          SizedBox(height: MediaQuery.of(context).size.height*0.01,),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.01,
+                          ),
                           Container(
                             width: MediaQuery.of(context).size.width,
                             child: RaisedButton(
-                              onPressed: (){},
+                              onPressed: () {},
                               color: Colors.black,
                               child: Text(
                                 'Register Here',
-                                style: TextStyle(
-                                  color: Colors.white
-                                ),
+                                style: TextStyle(color: Colors.white),
                               ),
                             ),
                           ),
                           // SizedBox(height: MediaQuery.of(context).size.height*0.01,),
                           Text(
-                            'GirlScript Summer of Code is the 3 month long Open Source program during summers conducted by GirlScript Foundation, started in 2018, with an aim to help beginners get started with Open Source Development while encouraging diversity. Throughout the program, participants contribute to different projects under guidance of experienced mentors.'
-                          )
+                              'AMUHacks 1.0 is a Student-focused Virtual Hackathon, intending to encourage and provide a platform for students to showcase their innovative ideas and solutions in developing projects through programming and latest technologies.\nWe welcome all newcomers and veterans alike. With the added benefit of being guided by mentors and honorable jury, all participants will also receive the participation certificates')
                         ],
                       ),
                     ),

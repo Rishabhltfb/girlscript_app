@@ -7,7 +7,6 @@ import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
 class Home extends StatefulWidget {
-
   final String userId;
   Home(this.userId);
 
@@ -92,19 +91,21 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    String announcement1 = "GirlScript Summer of Code is the 3 month long Open Source program during summers conducted by GirlScript Foundation, started in 2018, with an aim to help beginners get started with Open Source Development while encouraging diversity. Throughout the program, participants contribute to different projects under guidance of experienced mentors. Top participants get exciting goodies and opportunities.";
-    String announcement2 = "It is a meetup where everyone who are a part of Girlscript will gather and share their experience.";
+    String announcement1 =
+        " AMUHacks 1.0 is a Student-focused Virtual Hackathon, intending to encourage and provide a platform for students to showcase their innovative ideas and solutions in developing projects through programming and latest technologies.\nWe welcome all newcomers and veterans alike. With the added benefit of being guided by mentors and honorable jury, all participants will also receive the participation certificates";
+    String announcement2 =
+        "It is a meetup where everyone who are a part of AMU OSS will gather and share their experience.";
     return Scaffold(
-      body: FutureBuilder(
+        body: FutureBuilder(
       future: userRef.document(widget.userId).get(),
-      builder: (BuildContext context, AsyncSnapshot snapshot){
-        if(!snapshot.hasData){
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (!snapshot.hasData) {
           return Center(
             child: CircularProgressIndicator(),
           );
-        } else{
+        } else {
           print(snapshot.data);
-          User user= User.fromDoc(snapshot.data);
+          User user = User.fromDoc(snapshot.data);
           return SingleChildScrollView(
             primary: false,
             child: Container(
@@ -123,39 +124,38 @@ class _HomeState extends State<Home> {
                           child: TextField(
                             controller: _searchController,
                             decoration: InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(vertical: 5.0),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                BorderSide(color: Colors.white, width: 0.0),
-                                borderRadius: BorderRadius.circular(12.0)
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide:
-                                BorderSide(color: Colors.white, width: 0.0),
-                                borderRadius: BorderRadius.circular(12.0)
-                              ),
-                              hintText: 'Search',
-                              hintStyle:
-                                TextStyle(fontSize: 18.0, color: Colors.grey),
-                              prefixIcon: Icon(
-                                Icons.search,
-                                color: Colors.grey,
-                              ),
-                              suffixIcon: Container(
-                                child: IconButton(
-                                  icon: Icon(
-                                    Icons.mic,
-                                    color: Colors.grey,
-                                  ),
-                                  onPressed: _incrementCounter
+                                contentPadding:
+                                    EdgeInsets.symmetric(vertical: 5.0),
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.white, width: 0.0),
+                                    borderRadius: BorderRadius.circular(12.0)),
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.white, width: 0.0),
+                                    borderRadius: BorderRadius.circular(12.0)),
+                                hintText: 'Search',
+                                hintStyle: TextStyle(
+                                    fontSize: 18.0, color: Colors.grey),
+                                prefixIcon: Icon(
+                                  Icons.search,
+                                  color: Colors.grey,
                                 ),
-                              ),
-                              filled: true,
-                              fillColor: Colors.grey[200]),
+                                suffixIcon: Container(
+                                  child: IconButton(
+                                      icon: Icon(
+                                        Icons.mic,
+                                        color: Colors.grey,
+                                      ),
+                                      onPressed: _incrementCounter),
+                                ),
+                                filled: true,
+                                fillColor: Colors.grey[200]),
                             onSubmitted: (input) {},
                           ),
                         ),
-                        SizedBox(height: MediaQuery.of(context).size.width * 0.0355),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.width * 0.0355),
                         Padding(
                           padding: const EdgeInsets.only(left: 15.0),
                           child: Container(
@@ -166,18 +166,15 @@ class _HomeState extends State<Home> {
                                 RichText(
                                   textAlign: TextAlign.start,
                                   text: TextSpan(
-                                    text: 'Hi, ',
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 22.0),
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                        text: user.name,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w700
-                                        )
-                                      )
-                                    ]
-                                  ),
+                                      text: 'Hi, ',
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 22.0),
+                                      children: <TextSpan>[
+                                        TextSpan(
+                                            text: user.name,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w700))
+                                      ]),
                                 ),
                                 Text(
                                   'Explore the app',
@@ -202,9 +199,9 @@ class _HomeState extends State<Home> {
                           height: MediaQuery.of(context).size.width * 0.05,
                         ),
                         Text(
-                          'ANNOUNCEMENT',
-                          style:
-                            TextStyle(fontSize: 22.0, fontWeight: FontWeight.w700),
+                          'ANNOUNCEMENTS',
+                          style: TextStyle(
+                              fontSize: 22.0, fontWeight: FontWeight.w700),
                         ),
                         SizedBox(
                           height: MediaQuery.of(context).size.width * 0.01,
@@ -244,33 +241,45 @@ class _HomeState extends State<Home> {
                             // elevation: 6.0,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15.0),
-                                side:BorderSide(color: Color(0xffFFF1F1), width: 0.0)),
+                                side: BorderSide(
+                                    color: Color(0xffFFF1F1), width: 0.0)),
                             child: Padding(
                               padding: const EdgeInsets.only(
-                                  top: 15.0, bottom: 15.0, left: 20.0, right: 20.0),
+                                  top: 15.0,
+                                  bottom: 15.0,
+                                  left: 20.0,
+                                  right: 20.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    'GSSOC 2020',
+                                    'AMUHACKS 2020',
                                     style: TextStyle(
-                                      fontSize: 17.0, fontWeight: FontWeight.w700),
+                                        fontSize: 17.0,
+                                        fontWeight: FontWeight.w700),
                                   ),
-                                  SizedBox(height: MediaQuery.of(context).size.width * 0.0435,),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.width *
+                                        0.0435,
+                                  ),
                                   Text(
                                     announcement1,
                                     style: TextStyle(
-                                        fontWeight: FontWeight.w400, fontSize: 13.0),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 13.0),
                                   ),
                                   SizedBox(
-                                    height:MediaQuery.of(context).size.width * 0.0455,
+                                    height: MediaQuery.of(context).size.width *
+                                        0.0455,
                                   ),
                                   Container(
-                                    height: MediaQuery.of(context).size.width * 0.07,
+                                    height: MediaQuery.of(context).size.width *
+                                        0.07,
                                     child: RaisedButton(
                                       elevation: 5.0,
                                       shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(25.0)),
+                                          borderRadius:
+                                              BorderRadius.circular(25.0)),
                                       color: Colors.white,
                                       onPressed: () {},
                                       child: Text(
@@ -286,7 +295,8 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                         ),
-                        SizedBox(height: MediaQuery.of(context).size.width * 0.0455),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.width * 0.0455),
                         Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20.0),
@@ -304,34 +314,46 @@ class _HomeState extends State<Home> {
                             color: Color(0xffF3F1FF),
                             // elevation: 6.0,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              side: BorderSide(color: Color(0xffF3F1FF), width: 0.0)),
+                                borderRadius: BorderRadius.circular(15.0),
+                                side: BorderSide(
+                                    color: Color(0xffF3F1FF), width: 0.0)),
                             child: Padding(
                               padding: const EdgeInsets.only(
-                                  top: 15.0, bottom: 15.0, left: 20.0, right: 20.0),
+                                  top: 15.0,
+                                  bottom: 15.0,
+                                  left: 20.0,
+                                  right: 20.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    'Girlscript Contributors Week',
+                                    'AMU OSS Contributors Week',
                                     style: TextStyle(
-                                      fontSize: 17.0, fontWeight: FontWeight.w700),
+                                        fontSize: 17.0,
+                                        fontWeight: FontWeight.w700),
                                   ),
-                                  SizedBox(height: MediaQuery.of(context).size.width * 0.0435,),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.width *
+                                        0.0435,
+                                  ),
                                   Text(
                                     announcement2,
                                     style: TextStyle(
-                                        fontWeight: FontWeight.w400, fontSize: 13.0),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 13.0),
                                   ),
                                   SizedBox(
-                                    height:MediaQuery.of(context).size.width * 0.0455,
+                                    height: MediaQuery.of(context).size.width *
+                                        0.0455,
                                   ),
                                   Container(
-                                    height: MediaQuery.of(context).size.width * 0.07,
+                                    height: MediaQuery.of(context).size.width *
+                                        0.07,
                                     child: RaisedButton(
                                       elevation: 5.0,
                                       shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(25.0)),
+                                          borderRadius:
+                                              BorderRadius.circular(25.0)),
                                       color: Colors.white,
                                       onPressed: () {},
                                       child: Text(
@@ -347,7 +369,8 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                         ),
-                        SizedBox(height: MediaQuery.of(context).size.width * 0.1),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.width * 0.1),
                       ],
                     ),
                   ),
@@ -357,8 +380,7 @@ class _HomeState extends State<Home> {
           );
         }
       },
-    )
-    ); 
+    ));
   }
 
   void stressTest() {

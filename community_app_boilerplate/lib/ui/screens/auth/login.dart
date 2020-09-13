@@ -10,17 +10,16 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
   final AuthService _auth = AuthService();
-  bool _loading=false;
-  String _email,_password,errorMsg;
+  bool _loading = false;
+  String _email, _password, errorMsg;
   final FocusNode logInNodeEmailLogin = FocusNode();
   final FocusNode logInNodePasswordLogin = FocusNode();
 
   @override
   void initState() {
-    errorMsg="";
+    errorMsg = "";
     super.initState();
   }
 
@@ -28,202 +27,216 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
-    return _loading 
-    ? Container(
-        color: Colors.white,
-        child: Center(
-          child: SpinKitThreeBounce(
-            color: Colors.amber[800],
-            size: 50.0,
-          ),
-        ),
-      )
-    : Scaffold(
-        // resizeToAvoidBottomPadding: true,
-        body: SingleChildScrollView(
-          child: Container(
-            height: height,
-            decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [Color(0xffffe2c9),Colors.white],begin: Alignment.bottomRight,end: Alignment.topLeft),
-          ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            // SizedBox(height: height*0.04,),
-            _displaygslogo(),
-            Text(
-              "Welcome",
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.black87,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Montserrat",
+    return _loading
+        ? Container(
+            color: Colors.white,
+            child: Center(
+              child: SpinKitThreeBounce(
+                color: Colors.amber[800],
+                size: 50.0,
               ),
             ),
-            SizedBox(height:height*0.015),
-            Container(
-              height: height*0.05,
-              width: width*0.75,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(30)),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey[200].withOpacity(0.8),
-                    blurRadius: 2,
-                    spreadRadius: 3,
-                    offset: Offset(0, 1),
-                  ),
-                ],
-              ),
-              child: Text(
-                "GirlScript Chennai",
-                style: TextStyle(
-                  fontFamily: "Montserrat",
-                  fontSize: 22,
-                  color: Color(0xFFE46D39),
+          )
+        : Scaffold(
+            // resizeToAvoidBottomPadding: true,
+            body: SingleChildScrollView(
+              child: Container(
+                height: height,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [Color(0xffffe2c9), Colors.white],
+                      begin: Alignment.bottomRight,
+                      end: Alignment.topLeft),
                 ),
-              ),
-            ),
-            SizedBox(height: height*0.01),
-            Text(
-              "Let's Code For Freedom",
-              style: TextStyle(
-                fontSize: 22,
-                color: Colors.black54,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Montserrat",
-              ),
-            ),
-            _displayForm(),
-            SizedBox(height: height*0.01),
-            RaisedButton(
-                elevation: 6,
-                onPressed:() async {
-                  FocusScope.of(context).unfocus();
-                  if(_formKey.currentState.validate()){
-                    setState(() => _loading =true);
-                    dynamic result = await _auth.signInWithEmailAndPassword(_email,_password);
-                    switch (result) {
-                      case "ERROR_WRONG_PASSWORD":
-                      {
-                        setState(() {
-                          errorMsg = "Wrong Password. Try Again.";
-                          _loading = false;
-                        });
-                      }
-                      break;
-                      case "ERROR_USER_NOT_FOUND":
-                      {
-                        setState(() {
-                          errorMsg = "User Not Found. Register First.";
-                          _loading = false;
-                        });
-                      }
-                      break;
-                      case "ERROR_USER_DISABLED":
-                      {
-                          setState(() {
-                          errorMsg = "Your Account is diaabled.";
-                          _loading = false;
-                        });
-                      }
-                      break;
-                      case "ERROR_TOO_MANY_REQUESTS":
-                      {
-                          setState(() {
-                          errorMsg = "Too many requestes.";
-                          _loading = false;
-                        });
-                      }
-                      break;
-                      default:
-                      {
-                        setState(() {
-                          errorMsg = "";
-                        });
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Dashboard(userId: result.toString(),)));
-                      }
-                    }
-                  }
-                },
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                padding: EdgeInsets.all(0.0),
-                child: Ink(
-                  width: 0.73*width,
-                  padding: EdgeInsets.all(12.5),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(5),
-                    gradient: LinearGradient(
-                      colors: [Color(0xffFE824A), Color(0xffE16831)],
-                      begin: Alignment.centerRight,
-                      end: Alignment.centerLeft,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    // SizedBox(height: height*0.04,),
+                    _displaygslogo(),
+                    Text(
+                      "Welcome",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Montserrat",
+                      ),
                     ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "SIGN IN ",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        )
-                      ),
-                      Icon(
-                        Icons.arrow_forward,
+                    SizedBox(height: height * 0.015),
+                    Container(
+                      height: height * 0.05,
+                      width: width * 0.75,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
                         color: Colors.white,
-                        size: 25,
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey[200].withOpacity(0.8),
+                            blurRadius: 2,
+                            spreadRadius: 3,
+                            offset: Offset(0, 1),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                      child: Text(
+                        "AmuHacks 1.0 Aligarh",
+                        style: TextStyle(
+                          fontFamily: "Montserrat",
+                          fontSize: 22,
+                          color: Color(0xFFE46D39),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: height * 0.01),
+                    Text(
+                      "Let's Explore the Opportunities",
+                      style: TextStyle(
+                        fontSize: 19,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Montserrat",
+                      ),
+                    ),
+                    _displayForm(),
+                    SizedBox(height: height * 0.01),
+                    RaisedButton(
+                      elevation: 6,
+                      onPressed: () async {
+                        FocusScope.of(context).unfocus();
+                        if (_formKey.currentState.validate()) {
+                          setState(() => _loading = true);
+                          dynamic result = await _auth
+                              .signInWithEmailAndPassword(_email, _password);
+                          switch (result) {
+                            case "ERROR_WRONG_PASSWORD":
+                              {
+                                setState(() {
+                                  errorMsg = "Wrong Password. Try Again.";
+                                  _loading = false;
+                                });
+                              }
+                              break;
+                            case "ERROR_OPERATION_NOT_ALLOWED":
+                              {
+                                setState(() {
+                                  errorMsg = "No account found!";
+                                  _loading = false;
+                                });
+                              }
+                              break;
+                            case "ERROR_USER_NOT_FOUND":
+                              {
+                                setState(() {
+                                  errorMsg = "User Not Found. Register First.";
+                                  _loading = false;
+                                });
+                              }
+                              break;
+                            case "ERROR_USER_DISABLED":
+                              {
+                                setState(() {
+                                  errorMsg = "Your Account is diaabled.";
+                                  _loading = false;
+                                });
+                              }
+                              break;
+                            case "ERROR_TOO_MANY_REQUESTS":
+                              {
+                                setState(() {
+                                  errorMsg = "Too many requestes.";
+                                  _loading = false;
+                                });
+                              }
+                              break;
+                            default:
+                              {
+                                setState(() {
+                                  errorMsg = "";
+                                });
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Dashboard(
+                                      userId: result.toString(),
+                                    ),
+                                  ),
+                                );
+                              }
+                          }
+                        }
+                      },
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      padding: EdgeInsets.all(0.0),
+                      child: Ink(
+                        width: 0.73 * width,
+                        padding: EdgeInsets.all(12.5),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.circular(5),
+                          gradient: LinearGradient(
+                            colors: [Color(0xffFE824A), Color(0xffE16831)],
+                            begin: Alignment.centerRight,
+                            end: Alignment.centerLeft,
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text("SIGN IN ",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            Icon(
+                              Icons.arrow_forward,
+                              color: Colors.white,
+                              size: 25,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Text(
+                      errorMsg,
+                      style: TextStyle(color: Colors.red),
+                    ),
+                    SizedBox(height: 60),
+                    _signupRedirect(),
+                    SizedBox(height: 40)
+                  ],
                 ),
-            ),
-            SizedBox(height: 15),
-            Text(
-              errorMsg,
-              style: TextStyle(
-                color: Colors.red
               ),
             ),
-            SizedBox(height: 60),
-            _signupRedirect(),
-            SizedBox(height: 40)
-          ],
-        ),
-          ),
-        ),
-    );
+          );
   }
 
-  void toggleView(){
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpScreen()));
+  void toggleView() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => SignUpScreen()));
   }
-  
-  Widget _displaygslogo(){
+
+  Widget _displaygslogo() {
     return Container(
       alignment: Alignment.center,
       height: 100,
       width: 100,
       decoration: BoxDecoration(
-        shape: BoxShape.rectangle,
-        image: DecorationImage(
-          image: AssetImage("assets/images/gs.png"),
-          alignment: Alignment.center,
-          fit: BoxFit.contain 
-        )
-      ),
+          shape: BoxShape.rectangle,
+          image: DecorationImage(
+              image: AssetImage("assets/images/gs.png"),
+              alignment: Alignment.center,
+              fit: BoxFit.contain)),
     );
   }
 
   String emailValidator(String value) {
     Pattern pattern =
-      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     RegExp regex = new RegExp(pattern);
     if (value.isEmpty) return '*Required';
     if (!regex.hasMatch(value))
@@ -232,7 +245,7 @@ class _LoginScreenState extends State<LoginScreen> {
       return null;
   }
 
-  Widget _displayEmailInputField(){
+  Widget _displayEmailInputField() {
     return TextFormField(
       focusNode: logInNodeEmailLogin,
       style: TextStyle(
@@ -240,21 +253,24 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
-        icon: Icon(Icons.mail_outline,color: Colors.black,),
+        icon: Icon(
+          Icons.mail_outline,
+          color: Colors.black,
+        ),
         labelText: "Email",
-        labelStyle: TextStyle(fontSize: 16,color: Colors.grey),
+        labelStyle: TextStyle(fontSize: 16, color: Colors.grey),
       ),
       cursorColor: Color(0xFFE46D39),
-      onChanged: (val){
+      onChanged: (val) {
         setState(() {
-          _email=val;
+          _email = val;
         });
       },
       validator: emailValidator,
     );
   }
 
-  Widget _displayPasswordField(){
+  Widget _displayPasswordField() {
     return TextFormField(
       focusNode: logInNodePasswordLogin,
       obscureText: true,
@@ -263,53 +279,57 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       keyboardType: TextInputType.visiblePassword,
       decoration: InputDecoration(
-        icon: Icon(Icons.lock,color: Colors.black,),
+        icon: Icon(
+          Icons.lock,
+          color: Colors.black,
+        ),
         labelText: "Password",
-        labelStyle: TextStyle(fontSize: 16,color: Colors.grey),
+        labelStyle: TextStyle(fontSize: 16, color: Colors.grey),
       ),
       cursorColor: Color(0xFFE46D39),
-      onChanged: (val){
+      onChanged: (val) {
         setState(() {
-          _password=val;
+          _password = val;
         });
       },
-      validator: (val){
-        if(val.isEmpty){
+      validator: (val) {
+        if (val.isEmpty) {
           return "This field is compulsory";
-        }
-        else{
+        } else {
           return null;
         }
       },
     );
   }
 
-  Widget _signupRedirect(){
+  Widget _signupRedirect() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-      Text("Don't have an account? ",
-      style: TextStyle(
-        color: Colors.grey,
-        fontSize: 15,
-      ),
-      ),
-      GestureDetector(
-        onTap: () {
-          toggleView();
-        },
-        child: Text("SIGN UP",
+        Text(
+          "Don't have an account? ",
           style: TextStyle(
-            color: Color(0xFFE46D39),
+            color: Colors.grey,
             fontSize: 15,
-            fontWeight: FontWeight.bold
           ),
         ),
-      ), 
-    ],);
+        GestureDetector(
+          onTap: () {
+            toggleView();
+          },
+          child: Text(
+            "SIGN UP",
+            style: TextStyle(
+                color: Color(0xFFE46D39),
+                fontSize: 15,
+                fontWeight: FontWeight.bold),
+          ),
+        ),
+      ],
+    );
   }
 
-  Widget _displayForm(){
+  Widget _displayForm() {
     // final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Form(
@@ -321,15 +341,14 @@ class _LoginScreenState extends State<LoginScreen> {
           // shrinkWrap: true,
           // padding: const EdgeInsets.symmetric(horizontal: 16.0),
           children: <Widget>[
-            SizedBox(height: height*0.02),
+            SizedBox(height: height * 0.02),
             _displayEmailInputField(),
-            SizedBox(height: height*0.01),
+            SizedBox(height: height * 0.01),
             _displayPasswordField(),
-            SizedBox(height: height*0.02),
+            SizedBox(height: height * 0.02),
           ],
         ),
       ),
     );
   }
-
 }

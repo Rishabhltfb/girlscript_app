@@ -8,43 +8,37 @@ class TeamsScreen extends StatefulWidget {
 class _TeamScreenState extends State<TeamsScreen> {
   var boardMembers = [
     {
-      "imgUrl": 'assets/images/team/smaranjit_ghose.jpg',
-      "name": "Smaranjit Ghose",
-      "linkedin": "https://www.linkedin.com/in/smaranjitghose/",
-      "github": "https://github.com/smaranjitghose",
+      "imgUrl": 'assets/images/team/Rishabh_Sharma.jpg',
+      "name": "Rishabh Sharma",
+      "linkedin": "https://www.linkedin.com/in/rishabh-sharma-11242b174/",
+      "github": "https://github.com/Rishabhltfb",
     },
     {
-      "imgUrl": "assets/images/team/anush_bhatia.jpg",
-      "name": "Anush Bhatia",
-      "linkedin": "https://www.linkedin.com/in/anush-bhatia-aa500a158/",
-      "github": "https://github.com/anushbhatia",
+      "imgUrl": "assets/images/team/Aaradhya.jpeg",
+      "name": "Aaradhya Bansal",
+      "linkedin": "https://www.linkedin.com/in/aaradhya-bansal-7263251a8/",
+      "github": "https://github.com/aaradhya01",
     },
     {
-      "imgUrl": 'assets/images/team/saswat_nayak.jpg',
-      "name": 'Saswat Nayak',
-      "linkedin": 'https://www.linkedin.com/in/saswat-nayak-a41212166/',
-      "github": 'https://github.com/swat1998',
-    },
-    {
-      "imgUrl": 'assets/images/team/ousnik_polley.jpg',
-      "name": 'Ousnik Polley',
-      "linkedIi": 'https://www.linkedin.com/in/ousnikpolley/',
-      "github": 'https://github.com/ousnik',
-    },
-    {
-      "imgUrl": 'assets/images/team/sukkrit_sharma.jpg',
-      "name": 'Sukkrit Sharma',
-      "linkedin": 'https://www.linkedin.com/in/sukkritsharma/',
-      "github": 'https://github.com/sukkritsharmaofficial',
+      "imgUrl": 'assets/images/team/Radhika.jpeg',
+      "name": 'Radhika Singh',
+      "linkedin": 'https://www.linkedin.com/in/radhika-singh-2171291a4/',
+      "github": 'https://github.com/radhikasingh13',
     },
   ];
 
   var technicalTeam = [
     {
-      "name": "Suhrid Datta",
-      "linkedin": "https://www.linkedin.com/in/suhrid-datta-834863157/",
-      "github": "https://github.com/suhriddatta",
-      "imgUrl": "assets/images/team/suhrid_datta.jpg",
+      "imgUrl": 'assets/images/team/Rishabh_Sharma.jpg',
+      "name": "Rishabh Sharma",
+      "linkedin": "https://www.linkedin.com/in/rishabh-sharma-11242b174/",
+      "github": "https://github.com/Rishabhltfb",
+    },
+    {
+      "imgUrl": "assets/images/team/Aaradhya.jpeg",
+      "name": "Aaradhya Bansal",
+      "linkedin": "https://www.linkedin.com/in/aaradhya-bansal-7263251a8/",
+      "github": "https://github.com/aaradhya01",
     },
     {
       "name": "Bidisha Mukherjee",
@@ -86,10 +80,10 @@ class _TeamScreenState extends State<TeamsScreen> {
       "imgUrl": "assets/images/team/jasprit_kaur.jpg",
     },
     {
-      "name": "Sriyash",
-      "linkedin": " ",
-      "github": " ",
-      "imgUrl": "assets/images/team/sriyash.jpg",
+      "imgUrl": 'assets/images/team/Rishabh_Sharma.jpg',
+      "name": "Rishabh Sharma",
+      "linkedin": "https://www.linkedin.com/in/rishabh-sharma-11242b174/",
+      "github": "https://github.com/Rishabhltfb",
     },
     {
       "name": "Rahul Sarvadevabhatla",
@@ -107,10 +101,10 @@ class _TeamScreenState extends State<TeamsScreen> {
       "imgUrl": "assets/images/team/arnab_dutta.jpg",
     },
     {
-      "name": "Suryanshi Kaushik",
-      "linkedin": "https://www.linkedin.com/in/suryanshi-kaushik-206433182/",
-      "github": " ",
-      "imgUrl": "assets/images/team/suryanshi_kaushik.jpg",
+      "imgUrl": 'assets/images/team/Rishabh_Sharma.jpg',
+      "name": "Rishabh Sharma",
+      "linkedin": "https://www.linkedin.com/in/rishabh-sharma-11242b174/",
+      "github": "https://github.com/Rishabhltfb",
     },
     {
       "name": "Ritik Rajput",
@@ -193,7 +187,7 @@ class _TeamScreenState extends State<TeamsScreen> {
                 margin: EdgeInsets.only(top: 20),
                 alignment: Alignment.center,
                 child: Text(
-                  "Board",
+                  "AMUHacks 1.0",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 18,
@@ -311,7 +305,7 @@ class _TeamScreenState extends State<TeamsScreen> {
                 margin: EdgeInsets.only(top: 20),
                 alignment: Alignment.center,
                 child: Text(
-                  "Technical Team",
+                  "SIH Team",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 18,
@@ -427,7 +421,7 @@ class _TeamScreenState extends State<TeamsScreen> {
                 margin: EdgeInsets.only(top: 20),
                 alignment: Alignment.center,
                 child: Text(
-                  "Buisness Team",
+                  "Technoxian Team",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 18,
@@ -548,7 +542,7 @@ class _TeamScreenState extends State<TeamsScreen> {
                 ),
                 alignment: Alignment.center,
                 child: Text(
-                  "Creatives Team",
+                  "ICPC Team",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 18,
