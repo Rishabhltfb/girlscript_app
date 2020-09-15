@@ -6,6 +6,8 @@ import 'package:speech_to_text/speech_to_text.dart';
 import 'events/event1.dart';
 
 class Events extends StatefulWidget {
+  final String userId;
+  Events(this.userId);
   @override
   _EventsState createState() => _EventsState();
 }
@@ -203,7 +205,7 @@ class _EventsState extends State<Events> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (BuildContext context) =>
-                                            Event1()));
+                                            Event1(widget.userId)));
                               },
                               child: Card(
                                 color: Color(0xff12563A),

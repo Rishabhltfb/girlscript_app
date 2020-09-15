@@ -1,6 +1,9 @@
+import 'package:communityappboilerplate/ui/screens/teamup.dart';
 import 'package:flutter/material.dart';
 
 class Event1 extends StatefulWidget {
+  final String userId;
+  Event1(this.userId);
   @override
   _Event1State createState() => _Event1State();
 }
@@ -221,7 +224,7 @@ class _Event1State extends State<Event1> {
                                         ),
                                       )
                                     ],
-                                  )
+                                  ),
                                 ],
                               ),
                             ],
@@ -232,7 +235,14 @@ class _Event1State extends State<Event1> {
                           Container(
                             width: MediaQuery.of(context).size.width,
                             child: RaisedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => TeamUp(widget.userId),
+                                  ),
+                                );
+                              },
                               color: Colors.black,
                               child: Text(
                                 'Register Here',
@@ -242,7 +252,8 @@ class _Event1State extends State<Event1> {
                           ),
                           // SizedBox(height: MediaQuery.of(context).size.height*0.01,),
                           Text(
-                              'AMUHacks 1.0 is a Student-focused Virtual Hackathon, intending to encourage and provide a platform for students to showcase their innovative ideas and solutions in developing projects through programming and latest technologies.\nWe welcome all newcomers and veterans alike. With the added benefit of being guided by mentors and honorable jury, all participants will also receive the participation certificates')
+                            'AMUHacks 1.0 is a Student-focused Virtual Hackathon, intending to encourage and provide a platform for students to showcase their innovative ideas and solutions in developing projects through programming and latest technologies.\nWe welcome all newcomers and veterans alike. With the added benefit of being guided by mentors and honorable jury, all participants will also receive the participation certificates.',
+                          )
                         ],
                       ),
                     ),
